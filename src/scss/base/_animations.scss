@@ -1,0 +1,154 @@
+@mixin nomotion {
+    animation: fadeIn .8s ease forwards;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        transform: translateX(25%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutRight {
+    from {
+        transform: translateX(-25%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeftRotate {
+    from {
+        transform: translate(0, -50%) rotate(20deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(46%, -50%) rotate(20deg);
+        opacity: 1;
+    }
+
+
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    animation-timing-function: ease;
+    animation-delay: .8s;
+    animation-fill-mode: both;
+}
+
+.fadeInDown {
+    animation: fadeInDown var(--duration-animation) forwards;
+
+}
+
+.fadeInLeftRotate {
+    -webkit-animation-name: fadeInLeftRotate;
+    animation-name: fadeInLeftRotate;
+    animation-timing-function: ease;
+    animation-delay: .8s;
+    animation-fill-mode: both;
+}
+
+.fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    animation-timing-function: ease;
+    animation-delay: .3s;
+    animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion) {
+
+    /* styles to apply if the user's settings are set to reduced motion */
+    .fadeInUp,
+    .fadeInDown,
+    .fadeInLeft,
+    .fadeInRight,
+    .fadeInLeftRotate {
+        @include nomotion;
+    }
+}

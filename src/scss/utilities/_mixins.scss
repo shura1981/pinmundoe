@@ -1,0 +1,13 @@
+@mixin headerdark($isDark: false) {
+    @if $isDark {
+        --header-bg: #222222ad;
+        --color-nav-header: #fff;
+        --color-nav-header-hover: #E0752F;
+    }
+
+    @else {
+        --header-bg: transparent;
+        --color-nav-header: #fff;
+        --color-nav-header-hover: #E0752F;
+    }
+}

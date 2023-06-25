@@ -1,0 +1,167 @@
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,500;1,800&display=swap');
+
+@mixin colorHover($isDark) {
+    @if $isDark {
+        --btn-hover-color: #e5ca00;
+        --btn-hover-bg-color: #eeeeee5e;
+        --btn-hover-border-color: transparent;
+    }
+
+    @else {
+        --btn-hover-color: #003a87;
+        --btn-hover-bg-color: #a7a7a770;
+        --btn-hover-border-color: transparent;
+    }
+}
+
+@mixin btn-outline-primary($isDark: false) {
+    @if $isDark {
+        --btn-bg: transparent;
+        --btn-color: #e5ca00;
+        --btn-hover-bg: transparent;
+        --btn-hover-color: #ffed68;
+        --btn-focus-bg: transparent;
+        --btn-focus-color: #ffed68;
+        --btn-active-bg: transparent;
+        --btn-active-color: #3566b6;
+        --border-color: #e5ca00;
+    }
+
+    @else {
+        --btn-bg: transparent;
+        --btn-color: #3b71ca;
+        --btn-hover-bg: transparent;
+        --btn-hover-color: #386bc0;
+        --btn-focus-bg: transparent;
+        --btn-focus-color: #386bc0;
+        --btn-active-bg: transparent;
+        --btn-active-color: #3566b6;
+        --border-color: #3b71ca;
+    }
+}
+
+:root {
+    --color-nav-header: #fff;
+    --color-nav-header-hover: #E0752F;
+    --header-bg: transparent;
+    --color: #343434;
+    --thumb: rgba(0, 102, 255, 0.004);
+    --thumb-focus: rgba(0, 102, 255, 0.798);
+    --thumb-bar: rgb(0, 102, 255);
+    --color-fondo: #ffffff;
+    --color-font: rgb(12, 12, 12);
+    --skeleton: rgb(230 230 230);
+    --track: rgb(255, 255, 255);
+    --card: #fdfdfd;
+    --border-card: 1px solid hsla(0, 0%, 100%, .125);
+    --radius-card: 0.25rem;
+    --shadow-card: 0 10px 20px 0 rgba(0, 0, 0, .05) !important;
+    --color-border-card: 1px solid rgba(0, 0, 0, .125);
+    --font-poppins: 'Poppins', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --colorPrimary: #E0752F;
+    --colorPrimary-dark: #b14d09;
+    --colorSecondary: #07ebfc;
+    --colorAlternative: #2d8cff;
+    --degradePrimary: linear-gradient(18deg, #03a9f4 0%, #e80a55 93% 45%);
+    --degradePrimary2: linear-gradient(18deg, #e80a55 0%, #03a9f4 93% 45%);
+    --degradePrimary3: linear-gradient(18deg, #03a9f4 0%, #0ab4e8 93% 45%);
+    --degradePrimary4: linear-gradient(335deg, #ca0f4e 0%, #ff6296 100%);
+    --degradeAlternative: linear-gradient(335deg, rgba(255, 140, 107, 1) 0%, rgba(255, 228, 168, 1) 100%);
+    --degradeAlternative2: linear-gradient(335deg, #12949d 0%, #03ffff 100%);
+    --footer: #171717;
+    --footer-alternative: #2D2D2D;
+
+    --color-header: rgb(20, 20, 20);
+    --awasome: rgb(20, 20, 20);
+    --bg-white: #ffffff;
+    --bg-white-opacity: #ffffff74;
+    --sidenav-background-color: #fdfdfdf1;
+
+    --duration-animation: .8s ease;
+    --fondo-tabla: #fff;
+    --datatable-color: rgb(12, 12, 12);
+    --datatable-border-color: #e0e0e0;
+    --datatable-active-icon: #212529;
+    --datatable-pagination-color: #f6f6f6;
+    --datatable-pagination-button: #212529;
+    --background-img-close: rgb(211, 211, 211) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+
+    --datatable-border-color: #e0e0e0;
+    --modal-header-border-width: 2px;
+    --modal-header-border-color: #f5f5f5;
+    --readonly: #e9ecef;
+    --datatable-table-th-td-padding-x: 1.4rem;
+    --datatable-table-th-td-padding-y: .5rem;
+    --datatable-accent-bg: #f5f5f5;
+    --active: #03a9f45e;
+    @include colorHover(false);
+    @include btn-outline-primary();
+    /* Colors: */
+    --unnamed-color-343434: #343434;
+    --unnamed-color-dce1da: #DCE1DA;
+    --unnamed-color-f2f4f1: #F2F4F1;
+    --unnamed-color-e0752f: #E0752F;
+    --unnamed-color-ffffff: #FFFFFF;
+    --unnamed-color-5f6368: #5F6368;
+
+    /* Font/text values */
+    --unnamed-font-family-roboto: Roboto;
+    --unnamed-font-family-poppins: Poppins;
+    --unnamed-font-style-normal: normal;
+    --unnamed-font-weight-600: 600px;
+    --unnamed-font-weight-normal: normal;
+    --unnamed-font-weight-medium: medium;
+    --unnamed-font-size-16: 16px;
+    --unnamed-font-size-39: 39px;
+    --unnamed-font-size-48: 48px;
+    --unnamed-character-spacing-0-22: 0.22px;
+    --unnamed-character-spacing-0-55: 0.55px;
+    --unnamed-character-spacing-0-67: 0.67px;
+    --unnamed-line-spacing-21: 21px;
+    --unnamed-line-spacing-28: 28px;
+    --unnamed-line-spacing-45: 45px;
+    --unnamed-line-spacing-48: 48px;
+    --size-menu: 48px;
+    --height-header: 96px;
+}
+
+@mixin dark {
+    --color-fondo: #0f0f0f;
+    --skeleton: rgb(61, 61, 61);
+    --track: rgb(58, 58, 58);
+    --card: #212121;
+    --color-border-card: 1px solid rgb(239, 239, 239, 0.14);
+    --bg-white: #212121;
+    --bg-white-opacity: #25242474;
+    --sidenav-background-color: #191919c3;
+    --fondo-tabla: #212121;
+    --datatable-pagination-color: #212121;
+    --datatable-border-color: #e0e0e042;
+    --modal-header-border-color: #e1e1e121;
+    --readonly: #393939;
+    --datatable-accent-bg: #212121;
+
+
+
+    --color: rgb(246, 246, 246);
+    --awasome: #9fa6b2;
+    --color-header: #9fa6b2;
+    --datatable-color: rgb(255, 255, 255);
+    --datatable-active-icon: #f2f2f2;
+    --datatable-pagination-button: #fdfdfd;
+    --datatable-pagination-button-hover: #a3a3a3;
+    --thumb-bar: linear-gradient(335deg, rgb(249, 196, 51) 0%, rgba(255, 228, 168, 1) 100%);
+    --thumb-focus: linear-gradient(335deg, rgba(249, 196, 51, 0.757) 0%, rgba(255, 227, 168, 0.784) 100%);
+    --background-img-close: white url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+    --active: rgb(22 72 94);
+    @include colorHover(true);
+    @include btn-outline-primary(true);
+}
+
+
+.dark {
+    @include dark;
+}
+
+
