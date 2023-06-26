@@ -4,6 +4,7 @@
 @use 'base/_base';
 @import 'utilities/_mixins';
 @import '../css/bootstrap-grid.min.css';
+@import 'components/_slider.component';
 
 body {
   font-family: var(--font-roboto);
@@ -283,5 +284,24 @@ nav.nav-not-mobile {
     grid-area: 1/1;
   }
 
-  background: rebeccapurple;
+  background: var(--colorPrimary);
+}
+
+.description-slider-item {
+  font-family: var(--unnamed-font-family-roboto);
+  font-weight: var(--unnamed-font-weight-medium);
+  font-size: var(--unnamed-font-size-16)/var(--unnamed-line-spacing-21) ;
+  letter-spacing: var(--unnamed-character-spacing-0-22);
+  color: var(--unnamed-color-ffffff);
+  text-align: left;
+  line-height: 1.4rem;
+}
+
+.title-slider-item {
+  font-family:var(--unnamed-font-family-poppins);
+  font-weight:var(--unnamed-font-weight-medium);
+  font-style: var(--unnamed-font-style-normal);
+  letter-spacing: var(--unnamed-character-spacing-0-55);
+  color: var(--unnamed-color-ffffff);
+font-size: 2rem;
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import Header from './components/header'
+import Header from './components/header';
+import Slider from './components/slider';
 import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
 function App() {
 
@@ -80,14 +81,17 @@ function App() {
           <div className="bg-products">
             <div></div><div></div>
           </div>
-          <div className="container image-products relative my-5" style={{paddingLeft: '0', paddingRight:'0'}}>
-            <div className="aspec-ratio ratio16x9">
+          <div className="container  relative " style={{ paddingLeft: '0', paddingRight: '0', height: '552px' }}>
+            <div className=" image-products">
               <div className="full grid-container-slider">
-                <div className='container-slider'>
+                <div className='container-slider aspec-ratio ratio-responsive'>
+
+
+                  <Slider className="ratio_img" />
+
                 </div>
               </div>
             </div>
-
           </div>
         </section>
         <section id="services">

@@ -807,6 +807,13 @@ li {
     padding-top: calc(100% / (21/9));
 }
 
+.ratio-responsive {
+    padding-top: calc(100% / (16/9));
+
+    @media(max-width:596px) {
+        padding-top: 100%;
+    }
+}
 
 /* redes sociales */
 .ratio1x1 {
@@ -1268,5 +1275,3 @@ select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #1b1b1b inset !important;
     -webkit-text-fill-color: white !important;
 }
-
-
