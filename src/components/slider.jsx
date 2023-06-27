@@ -11,7 +11,7 @@ function Slider({ className }) {
     useEffect(() => {
 
         // init Swiper:
-        const swiper = new Swiper('.swiper', {
+        const swiper = new Swiper('.component-slider .swiper', {
             // configure Swiper to use modules
             modules: [Navigation, Pagination],
             loop: true,
@@ -69,17 +69,14 @@ function Slider({ className }) {
                 </div>
                 <div className='container-navigation'>
                     <div className='nav-swiper-button-prev'>
-                        <img src="/img/arrow-left-circle.svg" alt="slider derecho" />
+                        <img src="img/arrow-left-circle.svg" alt="slider derecho" />
                     </div>
                     <div className='nav-swiper-button-next'>
-                        <img src="/img/arrow-right-circle.svg" alt="slider derecho" />
+                        <img src="img/arrow-right-circle.svg" alt="slider derecho" />
                     </div>
 
                 </div>
-
-
             </div>
-
         </div>
     )
 }

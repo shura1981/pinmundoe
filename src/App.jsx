@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import Header from './components/header';
 import Slider from './components/slider';
+import Accordion from './components/acordeon';
+
 import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
 function App() {
 
@@ -63,9 +65,9 @@ function App() {
 
           </div>
         </section>
-        <section id='about' className='section-secundary '>
+        <section id='about' className='section-secundary p-section'>
           <div className="container">
-            <div className="row  hv-100 justify-content-center align-items-center">
+            <div className="row justify-content-center align-items-center">
               <div className="col-12 col-md-8">
                 <h2 className='title '>
                   We Help Businesses <span className='subtitle d-block'>Grow and Innovate</span>
@@ -77,7 +79,7 @@ function App() {
             </div>
           </div>
         </section>
-        <section id='products' className='d-flex align-items-center justify-content-center'>
+        <section id='products' className='d-flex align-items-center justify-content-center p-section'>
           <div className="bg-products">
             <div></div><div></div>
           </div>
@@ -85,17 +87,25 @@ function App() {
             <div className=" image-products">
               <div className="full grid-container-slider">
                 <div className='container-slider aspec-ratio ratio-responsive'>
-
-
                   <Slider className="ratio_img" />
-
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section id="services">
-          <h2>section 4 </h2>
+        <section id="services" className='min-h100'>
+        <div className="bg-services">
+            <div></div><div></div>
+        </div>
+        <div className="container">
+        <div className="row  align-items-center" style={{height:"100vh"}}>
+        <div className="col-12 col-md-8">
+        <div className="card" style={{border:"none", borderRadius:".5rem"}}>
+          <Accordion />
+        </div>
+          </div>
+        </div>
+        </div>
         </section>
         <section id="contact">
           <h2>section 5 </h2>
