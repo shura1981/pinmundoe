@@ -4,14 +4,13 @@
     /* Estilos generales del acordeón */
     .accordion-item {
         cursor: pointer;
-        // background-color: #f5f5f5;
-        padding: 10px;
-        /* UI Properties */
+        padding: 10px 1.5rem;
         background: #F8F8F8 0% 0% no-repeat padding-box;
         border: 1px solid #E3E3E3;
         border-radius: 4px 4px 0px 0px;
         opacity: 1;
-
+        display: flex;
+        justify-content: space-between;
     }
 
 
@@ -39,15 +38,22 @@
         padding: 10px;
         visibility: visible;
         opacity: 1;
+        color: #636363;
         transition: opacity .3s cubic-bezier(.25, .46, .45, .94), max-height .35s cubic-bezier(.25, .46, .45, .94);
     }
 
+    .arrow img{
+    }
 
 
     /* Estilos del título del acordeón */
-    .accordion-item h3 {
+    .accordion-item p {
         margin: 0;
     }
 
+    .accordion-item-title{
+        color: #636363;
+        font-weight: 600;
+    }
 
 }

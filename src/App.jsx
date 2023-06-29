@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import Header from './components/header';
 import Slider from './components/slider';
 import Accordion from './components/acordeon';
-
+import BackgroundColors from './components/backgroundcolors';
+import Form from './components/form';
+import Button from './components/button';
+import Footer from './components/footer';
 import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
 function App() {
 
@@ -52,17 +55,13 @@ function App() {
                 <div className="d-flex flex-column">
                   <h1 className='title-welcome'>Sed ut perspiciatis unde omnis iste natus </h1>
                   <p className='my-4 description-welcome'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                  <div>
+                  {/* <div>
                     <button onClick={handleButton} className='btn__primary'>Read More</button>
-                  </div>
+                  </div> */}
+                  <Button handleButton={handleButton} text='Read More' clases='btn__primary mt-3' />
                 </div>
-
               </div>
-
             </div>
-
-
-
           </div>
         </section>
         <section id='about' className='section-secundary p-section'>
@@ -80,9 +79,7 @@ function App() {
           </div>
         </section>
         <section id='products' className='d-flex align-items-center justify-content-center p-section'>
-          <div className="bg-products">
-            <div></div><div></div>
-          </div>
+          <BackgroundColors />
           <div className="container  relative " style={{ paddingLeft: '0', paddingRight: '0', height: '552px' }}>
             <div className=" image-products">
               <div className="full grid-container-slider">
@@ -94,27 +91,37 @@ function App() {
           </div>
         </section>
         <section id="services" className='min-h100'>
-        <div className="bg-services">
+          <div className="bg-services">
             <div></div><div></div>
-        </div>
-        <div className="container">
-        <div className="row  align-items-center" style={{height:"100vh"}}>
-        <div className="col-12 col-md-8">
-        <div className="card" style={{border:"none", borderRadius:".5rem"}}>
-          <Accordion />
-        </div>
           </div>
-        </div>
-        </div>
+          <div className="container">
+            <div className="row  align-items-center" style={{ height: "100vh" }}>
+              <div className="col-12 col-md-8">
+                <div className="card" style={{ border: "none", borderRadius: ".5rem" }}>
+                  <Accordion />
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
-        <section id="contact">
-          <h2>section 5 </h2>
+        <section id="contact" >
+          <BackgroundColors />
+          <div className="container" style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
+            <div className="row align-items-center">
+              <div className="col-12 col-md-6 order-2 order-md-1">
+                <Form />
+              </div>
+              <div className="col-12 col-md-6 order-1 order-md-2 mb-5 mb-md-0">
+                <picture>
+                  <source media="(min-width: 600px)" srcSet="img/contact-image@2x.webp" type="image/webp" />
+                  <img src="img/contact-image.webp" className="img-fluid" alt="contact image" />
+                </picture>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
-      <footer>
-        <p>React App</p>
-      </footer>
-
+    <Footer/>
     </>
   )
 }

@@ -7,7 +7,7 @@
 @import 'components/_slider.component';
 @import 'components/_side-navbar.component';
 @import 'components/_accordion.component';
-
+@import 'components/_input.component';
 
 body {
   font-family: var(--font-roboto);
@@ -110,10 +110,23 @@ nav.nav-not-mobile {
     place-items: center;
     transition: transform 0.2s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 
     &:active {
       transform: scale(.9);
     }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
   }
 }
 
@@ -331,14 +344,38 @@ nav.nav-not-mobile {
   }
 
   div:nth-child(2) {
-    background-image: url(img/section4-image.webp);
+    background-image: url(/img/section4-image.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    @media(max-width:1024px){
+
+    @media(max-width:1024px) {
       background-position: center right;
     }
   }
 
 
 }
+
+.footer {
+  background: var(--unnamed-color-343434) 0% 0% no-repeat padding-box;
+  background: #343434 0% 0% no-repeat padding-box;
+
+  p {
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-28) var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0-22);
+    color: var(--unnamed-color-dce1da);
+    text-align: left;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #23232329;
+}
+

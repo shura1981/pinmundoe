@@ -1,36 +1,39 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Swiper, { EffectCube, Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cube';
 import 'swiper/css/autoplay';
 export default function Sidenavbar({ show = false }) {
+    const [autoplay, setAutoplay] = useState(show);
     useEffect(() => {
-        console.log('show', show);
-
+        console.log("show", show);
+        const myswiper = new Swiper(".modal-sidenavbar .mySwiper", {
+            modules: [ Pagination],
+            loop: false,
+            // effect: "cube",
+            grabCursor: true,
+            // autoplay: autoplay ? {
+            //     delay: 5000,
+            //     disableOnInteraction: true,
+            // } : false,
+            cubeEffect: {
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 20,
+                shadowScale: 0.94,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                // dynamicBullets: true,
+                clickable: true
+            },
+        });
+        myswiper.on('click', function () {
+            setAutoplay(false);
+        });
 
     }, [])
-    const myswiper = new Swiper(".modal-sidenavbar .mySwiper", {
-        modules: [EffectCube, Autoplay, Pagination],
-        loop: false,
-        effect: "cube",
-        grabCursor: true,
-        autoplay: show ? {
-            delay: 5000,
-            disableOnInteraction: true,
-        } : false,
-        cubeEffect: {
-            shadow: true,
-            slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            // dynamicBullets: true,
-            clickable: true
-        },
-    });
 
     return (
         <div className="modal-sidenavbar">
@@ -62,7 +65,7 @@ export default function Sidenavbar({ show = false }) {
                             <div className="swiper-pagination"></div>
                         </div>
                     </div>
-                    <ul className=" mb-4 ">
+                    <ul className=" ">
                         <li id="inicio" className="appear-animation py-1" data-class-appear="appear-delay-2"><a className="py-1 "
                             href="#home">HOME</a> </li>
                         <li className="appear-animation py-1" data-class-appear="appear-delay-3"><a className="py-1 "
@@ -71,10 +74,10 @@ export default function Sidenavbar({ show = false }) {
                             href="#contact">CONTACT</a></li>
                         <li className="appear-animation" data-class-appear="appear-delay-5"> <a className="py-1 "
                             href="#services">SERVICES</a></li>
-                        <li className="appear-animation py-3" data-class-appear="appear-delay-6">
+                        <li className="appear-animation" data-class-appear="appear-delay-6">
                             <div className="mobile-nav__has-sublist ">
                                 <button id="collapse" type="button" aria-controls="Linklist-6"
-                                    className="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height is-open"
+                                    className=" py-3 mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height is-open"
                                     aria-expanded="true">
                                     <span className="mobile-nav__faux-link">
                                         PRODUCTOS

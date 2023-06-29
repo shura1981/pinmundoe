@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { smoothScrollElement } from '../helpers'
 import Sidenavbar from './sidenavbar';
 
 export default function Header({ isDark }) {
-    const [show, setShow] = useState(false);
 
-
+    let show = false;
     useEffect(() => {
         const links = document.querySelectorAll('[href]');
         const menuToggle = document.querySelector('.menu-toggle .menu');
@@ -31,27 +30,32 @@ export default function Header({ isDark }) {
             document.getElementById("Linklist-6").classList.toggle("is-open");
             document.querySelector(".icon").classList.toggle("icon-chevron-down");
         }
+
+        function checkClass(target) {
+            return target.classList.contains("menu") || target.classList.contains("modal") ||
+                !target.classList.contains("is-open") || target.nodeName == 'SPAN' || target.nodeName == 'LI' ||
+                target.nodeName == 'UL' || (target.nodeName == 'svg' && target.classList.contains("icon"));
+        }
+
         async function modalMenu(evt) {
             const target = evt.target;
-            console.log(target.nodeName);
-            if ((target.nodeName == "DIV" && !target.classList.contains("modal"))
-                || target.nodeName == 'SPAN' || target.nodeName == 'LI' ||
-                target.nodeName == 'UL' || (target.nodeName == 'svg' && target.classList.contains("icon"))) return null;
+            if (!checkClass(target)) return null;
+            if (target.classList.contains("menu-panel")) return null;
+            if (target.classList.contains("swiper-pagination-bullet")) return null;
 
             const list = document.querySelectorAll(".appear-animation");
-         const active=   modal.classList.toggle("active");
-            setShow(active);
+            const active = modal.classList.toggle("active");
+            // setShow(active);
+            show = active;
             document.querySelector("body").classList.toggle("noscroll");
-            console.log(modal.classList.contains("active") ? 'se abre' : 'se cierra');
+            // console.log(modal.classList.contains("active") ? 'se abre' : 'se cierra');
             await pause(100);
             document.querySelector(".menu-panel").classList.toggle("show");
             if (modal.classList.contains("active")) {//Se abre
-
                 await pause(10);
                 for (let index = 0; index < list.length; index++) {
                     const i = list[index];
                     const delay = i.dataset.classAppear;
-                    // i.style.animation = `reveal-y 1s ${delay} ease forwards`;
                     if (!i.classList.contains(delay)) i.classList.add(delay);
                     i.classList.add("show");
                 }
@@ -61,27 +65,9 @@ export default function Header({ isDark }) {
                 document.getElementById("Linklist-6").classList.remove("is-open");
                 document.querySelector(".icon").classList.remove("icon-chevron-down");
             }
-            
-
-
         }
         const pause = (miliseconds) => new Promise((resolve, reject) => setTimeout(() => resolve("terminado"), miliseconds));
-
-
-        // menuToggle.addEventListener('click', () => {
-        //     setShow(current => !current);
-        //     setShow(true);
-        //     // document.body.classList.toggle('menu-open');
-        // }
-        // );
-
-
     }, []);
-
-
-
-
-
 
     return (
         <>

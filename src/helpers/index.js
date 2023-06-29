@@ -1,4 +1,6 @@
 'use strict';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 /**
  * @description proceso que se ejecuta al cargar la pagina y resetea el scroll
  */
@@ -636,6 +638,88 @@ const animatedLoad = (
 export const smoothScrollElement = (element) => {
     document.querySelector(element).scrollIntoView({ behavior: 'smooth' });
 }
+
+// Utilidades para sweetalert2
+export const wrapSwal = () => {
+    const MySwal = withReactContent(Swal);
+    return {
+        Toast: MySwal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', MySwal.stopTimer)
+                toast.addEventListener('mouseleave', MySwal.resumeTimer)
+            }
+        }),
+        ICON: {
+            SUCCESS: 'success',
+            ERROR: 'error',
+            WARNING: 'warning',
+            INFO: 'info',
+            QUESTION: 'question'
+        },
+        POSITION: {
+            TOP: 'top',
+            TOP_START: 'top-start',
+            TOP_END: 'top-end',
+            CENTER: 'center',
+            CENTER_START: 'center-start',
+            CENTER_END: 'center-end',
+            BOTTOM: 'bottom',
+            BOTTOM_START: 'bottom-start',
+            BOTTOM_END: 'bottom-end'
+        },
+        showToast: ({ icon, title, position }) => {
+            Toast.fire({
+                icon: icon || ICON.SUCCESS,
+                title: title || 'Se ha actualizado el registro',
+                position: position || POSITION.TOP_END,
+            });
+        },
+        showSuccess: (title, message = null) => {
+            MySwal.fire({
+                icon: 'success',
+                title: title,
+                text: message,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        },
+        showErrorFetch: (text) => {
+            MySwal.fire({
+                icon: 'error',
+                title: 'Oops... Ocurrió un error',
+                text: text,
+            })
+        },
+        swal: null,
+        toogleLoading: ({ html = 'Enviando datos...', title = '¡Ya casi está listo!' }) => {
+
+            if (swal) {
+                swal.close();
+                swal = null;
+            }
+            else {
+                swal = MySwal.fire({
+                    title: title,
+                    html: html,
+                    backdrop: true,
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        MySwal.showLoading()
+                    }
+                });
+            }
+        }
+    }
+}
+
+
+
 // const smoothScrollElement = ({ selector, behavior, block }) => {
 //     const element = document.querySelector(selector);
 //     element.scrollIntoView({ behavior, block });
