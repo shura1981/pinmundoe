@@ -41,7 +41,7 @@ export default function Header({ isDark }) {
             const target = evt.target;
             if (!checkClass(target)) return null;
             if (target.classList.contains("menu-panel")) return null;
-            if (target.classList.contains("swiper-pagination-bullet")) return null;
+            if (target.nodeName == 'IMG') return null;
 
             const list = document.querySelectorAll(".appear-animation");
             const active = modal.classList.toggle("active");

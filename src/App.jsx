@@ -4,6 +4,7 @@ import Slider from './components/slider';
 import Accordion from './components/acordeon';
 import BackgroundColors from './components/backgroundcolors';
 import Form from './components/form';
+import FormCotroled from './components/formcontroled';
 import Button from './components/button';
 import Footer from './components/footer';
 import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
@@ -109,7 +110,8 @@ function App() {
           <div className="container" style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
             <div className="row align-items-center">
               <div className="col-12 col-md-6 order-2 order-md-1">
-                <Form />
+                {/* <Form /> */}
+                <FormCotroled />
               </div>
               <div className="col-12 col-md-6 order-1 order-md-2 mb-5 mb-md-0">
                 <picture>

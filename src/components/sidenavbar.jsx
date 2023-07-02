@@ -1,69 +1,11 @@
-import { useEffect, useState } from "react"
-import Swiper, { EffectCube, Autoplay, Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cube';
-import 'swiper/css/autoplay';
 export default function Sidenavbar({ show = false }) {
-    const [autoplay, setAutoplay] = useState(show);
-    useEffect(() => {
-        console.log("show", show);
-        const myswiper = new Swiper(".modal-sidenavbar .mySwiper", {
-            modules: [ Pagination],
-            loop: false,
-            // effect: "cube",
-            grabCursor: true,
-            // autoplay: autoplay ? {
-            //     delay: 5000,
-            //     disableOnInteraction: true,
-            // } : false,
-            cubeEffect: {
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 20,
-                shadowScale: 0.94,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                // dynamicBullets: true,
-                clickable: true
-            },
-        });
-        myswiper.on('click', function () {
-            setAutoplay(false);
-        });
-
-    }, [])
 
     return (
         <div className="modal-sidenavbar">
             <div className="modal">
                 <div className="menu-panel">
-                    <div className="ratio ratio16x9 mb-4 appear-animation" data-class-appear="appear-delay-2">
-                        <div className="swiper mySwiper ">
-                            <div className="swiper-wrapper">
-                                <div className="swiper-slide"
-                                    style={{ backgroundImage: "url('img/slider-1.webp')", backgroundSize: "cover", backgroundPosition: "top center" }}>
-
-                                </div>
-                                <div className="swiper-slide"
-                                    style={{ backgroundImage: "url('img/slider-1.webp')", backgroundSize: "cover", backgroundPosition: "top center" }}>
-
-
-                                </div>
-                                <div className="swiper-slide"
-                                    style={{ backgroundImage: "url('img/slider-1.webp')", backgroundSize: "cover", backgroundPosition: "top center" }}>
-
-
-                                </div>
-                                <div className="swiper-slide"
-                                    style={{ backgroundImage: "url('img/slider-1.webp')", backgroundSize: "cover", backgroundPosition: "top center" }}>
-
-
-                                </div>
-                            </div>
-                            <div className="swiper-pagination"></div>
-                        </div>
+                    <div className="aspec-ratio ratio16x9 mb-4 appear-animation" data-class-appear="appear-delay-2">
+                      <img className="ratio_img" style={{borderRadius:"1rem"}} src="img/slider-1-mobile.webp" alt="imagen menú lateral"/>
                     </div>
                     <ul className=" ">
                         <li id="inicio" className="appear-animation py-1" data-class-appear="appear-delay-2"><a className="py-1 "

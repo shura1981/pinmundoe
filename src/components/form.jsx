@@ -1,9 +1,7 @@
 
 import Button from "./button";
 import {wrapSwal} from '../helpers';
-export default  function form() {
- const swal=  wrapSwal();
-  
+export default  function Form() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(e.target);
@@ -11,7 +9,15 @@ export default  function form() {
         // obtener los campos name, email, phone, message
         const { name, email, phone, message } = e.target;
         console.log(name.value, email.value, phone.value, message.value);
- swal.showSuccess('hola')
+        wrapSwal.toogleLoading({});
+        setTimeout(() => {
+            wrapSwal.showToast({
+                title: 'Message sent successfully',
+                icon: 'success',
+                position: wrapSwal.POSITION.BOTTOM_END
+            });
+
+        }, 2000);
     }
 
     return (
