@@ -7,6 +7,7 @@ import Form from './components/form';
 import FormCotroled from './components/formcontroled';
 import Button from './components/button';
 import Footer from './components/footer';
+import ButtonFixedBottom from './components/buttonfixedbottom';
 import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
 function App() {
 
@@ -123,7 +124,9 @@ function App() {
           </div>
         </section>
       </main>
-    <Footer/>
+    <Footer>
+      <ButtonFixedBottom />
+    </Footer>
     </>
   )
 }

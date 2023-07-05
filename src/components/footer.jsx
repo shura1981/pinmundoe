@@ -1,7 +1,9 @@
 
-export default function Footer() {
+export default function Footer({ children}) {
     return (
+        
         <div className="footer">
+            {children}
             <footer className='container py-4'>
                 <div className="row">
                     <div className="col-12 d-flex justify-content-between">

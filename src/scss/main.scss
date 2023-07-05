@@ -392,3 +392,26 @@ input:-webkit-autofill:active {
   max-height: 100px;
   margin-bottom: 0rem;
 }
+
+$sizeButton:  48px;
+// botón fijo en la parte inferior de la pantalla
+.button-fixed-bottom {
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+  z-index: 2;
+  height: $sizeButton;
+  width: $sizeButton;
+  border-radius: 100%;
+  background-color: rgb(218, 218, 218);
+  border: 2px solid  var(--colorPrimary);
+  color:  var(--colorPrimary);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity .4s ease-in-out, transform .2s ease-in-out;
+  opacity: 0;
+  transform: scale(0.5);
+}
+ 
