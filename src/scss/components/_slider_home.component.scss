@@ -1,0 +1,11 @@
+
+
+.component-slider-home {
+    --swiper-theme-color: var(--colorPrimary) !important;
+    --swiper-pagination-bullet-inactive-color: grey !important;
+    --swiper-pagination-bullet-inactive-opacity: 0.8 !important;
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+        left: -34% !important;
+        bottom: 20% !important;
+    }
+}
