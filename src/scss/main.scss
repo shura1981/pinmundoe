@@ -8,6 +8,7 @@
 @import 'components/_side-navbar.component';
 @import 'components/_accordion.component';
 @import 'components/_input.component';
+@import 'components/_slider_home.component';
 
 body {
   font-family: var(--font-roboto);
@@ -140,10 +141,19 @@ nav.nav-not-mobile {
     padding-left: 0;
   }
 }
-
-.section-intro {
+.bg-dark{
   background-color: rgb(40, 40, 40);
+}
+.section-intro-slider-1 {
   background-image: url(/img/slider-1.webp);
+  background-size: cover;
+}
+.section-intro-slider-2 {
+  background-image: url(/img/section3-image@2x.webp);
+  background-size: cover;
+}
+.section-intro-slider-3 {
+  background-image: url(/img/contact-image@2x.webp);
   background-size: cover;
 }
 

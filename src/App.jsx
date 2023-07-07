@@ -7,6 +7,7 @@ import Form from './components/form';
 import FormCotroled from './components/formcontroled';
 import Button from './components/button';
 import Footer from './components/footer';
+import SliderHome from './components/sliderHome';
 import ButtonFixedBottom from './components/buttonfixedbottom';
 import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
 function App() {
@@ -50,21 +51,26 @@ function App() {
     <>
       <Header isDark={scroll > 80} />
       <main>
-        <section id='home' className='section-intro'>
-          <div className="container">
+        <section id='home' className='vh-100'>
+          <SliderHome />
+
+          {/* <div className="container">
             <div className="row hv-100 d-flex justify-content-start align-items-center">
               <div className="col-12 col-md-8">
                 <div className="d-flex flex-column">
                   <h1 className='title-welcome'>Sed ut perspiciatis unde omnis iste natus </h1>
                   <p className='my-4 description-welcome'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                  {/* <div>
+                  <div>
                     <button onClick={handleButton} className='btn__primary'>Read More</button>
-                  </div> */}
+                  </div>
                   <Button handleButton={handleButton} text='Read More' clases='btn__primary mt-3' />
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+
+
+
         </section>
         <section id='about' className='section-secundary p-section'>
           <div className="container">
@@ -124,9 +130,9 @@ function App() {
           </div>
         </section>
       </main>
-    <Footer>
-      <ButtonFixedBottom />
-    </Footer>
+      <Footer>
+        <ButtonFixedBottom />
+      </Footer>
     </>
   )
 }
