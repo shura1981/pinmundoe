@@ -8,24 +8,47 @@ import Button from "./button";
 import { smoothScrollElement } from '../helpers';
 
 export default function SliderHome() {
+
+    const loadVideo = () => {
+        var canvas = document.getElementById('videoPlayer');
+        if (canvas) {
+            let mql = window.matchMedia('(max-width: 600px)');
+            function myFunction(x) {
+                if (x.matches) { // If media query matches
+                    canvas.setAttribute("src", `/videos/globosMobile.mp4`)
+                    canvas.muted = true;
+                    canvas.play();
+                    canvas.onloadstart = () => canvas.dataset.load = 'true';
+                } else {
+                    canvas.setAttribute("src", `/videos/globos.mp4`);
+                }
+                x.onchange = () => {
+                    myFunction(x);
+                }
+            }
+            myFunction(mql);
+        }
+    }
+
+
     useEffect(() => {
 
         // init Swiper:
         const swiperHome = new Swiper('.component-slider-home .swiper', {
             // configure Swiper to use modules
-            modules: [Navigation, Pagination, Autoplay, EffectFade, EffectCreative],
-            // effect: "fade",
+            modules: [Navigation, Pagination, Autoplay, EffectFade],
+            effect: "fade",
             grabCursor: true,
-            effect: "creative",
-            creativeEffect: {
-                prev: {
-                    shadow: true,
-                    translate: [0, 0, -400],
-                },
-                next: {
-                    translate: ["100%", 0, 0],
-                },
-            },
+            // effect: "creative",
+            // creativeEffect: {
+            //     prev: {
+            //         shadow: true,
+            //         translate: [0, 0, -400],
+            //     },
+            //     next: {
+            //         translate: ["100%", 0, 0],
+            //     },
+            // },
             autoplay: {
                 delay: 5500,
                 disableOnInteraction: true,
@@ -41,6 +64,8 @@ export default function SliderHome() {
             // },
         });
 
+        loadVideo();
+
     }, []);
     const handleButton = (e) => {
         e.preventDefault();
@@ -53,6 +78,7 @@ export default function SliderHome() {
             <div className="swiper mySwiper relative">
                 <div className="swiper-wrapper">
                     <div className="swiper-slide section-intro-slider-1">
+                    <div className="filter-darker"></div>
                         <div className="container">
                             <div className="row hv-100 d-flex justify-content-start align-items-center">
                                 <div className="col-12 col-md-8">
@@ -79,6 +105,10 @@ export default function SliderHome() {
                         </div>
                     </div>
                     <div className="swiper-slide section-intro-slider-3">
+                        <video height="1280" width="720" muted autoPlay data-load="true" data-canpause="false" id="videoPlayer"
+                            className="video-intro" playsInline loop>
+                        </video>
+                        <div className="filter-darker"></div>
                         <div className="container">
                             <div className="row hv-100 d-flex justify-content-start align-items-center">
                                 <div className="col-12 col-md-8">

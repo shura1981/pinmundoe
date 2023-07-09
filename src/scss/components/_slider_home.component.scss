@@ -1,11 +1,51 @@
-
-
 .component-slider-home {
     --swiper-theme-color: var(--colorPrimary) !important;
     --swiper-pagination-bullet-inactive-color: grey !important;
     --swiper-pagination-bullet-inactive-opacity: 0.8 !important;
-    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
         left: -34% !important;
         bottom: 20% !important;
+        @media(max-width:576px){
+        bottom: 2% !important;
+        }
     }
+
+
+    .video-intro {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+
+        @media screen and (max-width:600px) {
+            right: 0;
+            bottom: 0;
+            height: 100%;
+        }
+
+        @media screen and (min-width:601px) {
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+    }
+
+
+    .filter-darker {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        // background: #0000005e;
+        @media(max-width:576px){
+              background: #0000008c;
+        }
+    }
+
 }

@@ -9,6 +9,7 @@
 @import 'components/_accordion.component';
 @import 'components/_input.component';
 @import 'components/_slider_home.component';
+$menu-mobile: 900px;
 
 body {
   font-family: var(--font-roboto);
@@ -81,7 +82,7 @@ nav.nav-not-mobile {
     }
   }
 
-  @media(max-width:767px) {
+  @media(max-width:$menu-mobile) {
     display: none;
   }
 }
@@ -98,7 +99,7 @@ nav.nav-not-mobile {
     stroke: var(--color-nav-header);
   }
 
-  @media(min-width:767px) {
+  @media(min-width:$menu-mobile) {
     display: none;
   }
 
@@ -141,21 +142,33 @@ nav.nav-not-mobile {
     padding-left: 0;
   }
 }
-.bg-dark{
+
+.bg-dark {
   background-color: rgb(40, 40, 40);
 }
+
 .section-intro-slider-1 {
   background-image: url(/img/slider-1.webp);
+
+  @media(max-width:896px) {
+    background-image: url(/img/sliderHomeMobile1.webp);
+  }
+
   background-size: cover;
 }
+
 .section-intro-slider-2 {
-  background-image: url(/img/section3-image@2x.webp);
+  background-image: url(/img/sliderhome-2.webp);
+  @media(max-width:576px){
+    background-image: url(/img/sliderhome-mobile-2.webp);
+  }
   background-size: cover;
 }
-.section-intro-slider-3 {
-  background-image: url(/img/contact-image@2x.webp);
-  background-size: cover;
-}
+
+// .section-intro-slider-3 {
+//   background-image: url(/img/contact-image@2x.webp);
+//   background-size: cover;
+// }
 
 .section-secundary {
   position: relative;
@@ -228,6 +241,11 @@ nav.nav-not-mobile {
 
   &:active {
     transform: scale(0.95);
+  }
+
+  @media(max-width:576px) {
+    width: 130px;
+    height: 37px;
   }
 }
 
@@ -389,21 +407,22 @@ input:-webkit-autofill:active {
   box-shadow: inset 0 0 20px 20px #23232329;
 }
 
-.error{
-  color:red;
+.error {
+  color: red;
   transition: opacity .2s ease, max-height .25s ease;
   opacity: 0;
   max-height: 0;
   margin-bottom: 1.5rem;
 }
 
-.error.active{
+.error.active {
   opacity: 1;
   max-height: 100px;
   margin-bottom: 0rem;
 }
 
-$sizeButton:  48px;
+$sizeButton: 48px;
+
 // botón fijo en la parte inferior de la pantalla
 .button-fixed-bottom {
   position: fixed;
@@ -414,8 +433,8 @@ $sizeButton:  48px;
   width: $sizeButton;
   border-radius: 100%;
   background-color: rgb(218, 218, 218);
-  border: 2px solid  var(--colorPrimary);
-  color:  var(--colorPrimary);
+  border: 2px solid var(--colorPrimary);
+  color: var(--colorPrimary);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -424,4 +443,3 @@ $sizeButton:  48px;
   opacity: 0;
   transform: scale(0.5);
 }
- 
