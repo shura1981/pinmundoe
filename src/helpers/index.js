@@ -736,4 +736,4 @@ function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize, pixelsPe
 // clampBuilder( 360, 840, 1, 3.5 ) -> "clamp( 1rem, -0.875rem + 8.333vw, 3.5rem )"
 // clamp( 1rem, -0.875rem + 8.333333333333332vw, 3.5rem )
 
-console.log(clampBuilder(375, 1366, 2, 3.5));
+// console.log(clampBuilder(375, 1366, 2, 3.5));

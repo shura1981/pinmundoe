@@ -8,7 +8,8 @@
 @import 'components/_side-navbar.component';
 @import 'components/_accordion.component';
 @import 'components/_input.component';
-@import 'components/_slider_home.component';
+@import 'components/_sliderhome.component';
+
 $menu-mobile: 900px;
 
 body {
@@ -165,10 +166,9 @@ nav.nav-not-mobile {
   background-size: cover;
 }
 
-// .section-intro-slider-3 {
-//   background-image: url(/img/contact-image@2x.webp);
-//   background-size: cover;
-// }
+.section-intro-slider-3 {
+  background:black
+}
 
 .section-secundary {
   position: relative;

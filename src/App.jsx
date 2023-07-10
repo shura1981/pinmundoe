@@ -9,7 +9,7 @@ import Button from './components/button';
 import Footer from './components/footer';
 import SliderHome from './components/sliderHome';
 import ButtonFixedBottom from './components/buttonfixedbottom';
-import { instersectionObserver, restarScroll, smoothScrollElement } from './helpers'
+import {  restarScroll, smoothScrollElement } from './helpers'
 function App() {
 
   // evento scroll
@@ -17,17 +17,10 @@ function App() {
   // evento resize
   const [width, setWidth] = useState(window.innerWidth);
 
-  const insertsetionEnabled = (e) => console.log(e);
-  const insertsetionDisabled = (e) => console.log(e);
+
 
   useEffect(() => {
     restarScroll();
-    instersectionObserver({
-      classTarget: '.section-secundary',
-      disconnect: true,
-      callbackIntersecting: insertsetionEnabled,
-      callbackNotIntersecting: insertsetionDisabled
-    });
     window.addEventListener('scroll', () => {
       const position = window.scrollY;
       // console.log(position);
@@ -36,8 +29,6 @@ function App() {
     window.addEventListener('resize', () => {
       setWidth(window.innerWidth)
     });
-
-
   }, [])
 
   const handleButton = (e) => {
@@ -123,7 +114,7 @@ function App() {
               <div className="col-12 col-md-6 order-1 order-md-2 mb-5 mb-md-0">
                 <picture>
                   <source media="(min-width: 600px)" srcSet="img/contact-image@2x.webp" type="image/webp" />
-                  <img src="img/contact-image.webp" className="img-fluid" alt="contact image" />
+                  <img loading="lazy" src="img/contact-image.webp" className="img-fluid" alt="contact image" />
                 </picture>
               </div>
             </div>
