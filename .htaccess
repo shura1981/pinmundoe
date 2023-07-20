@@ -1,0 +1,21 @@
+RewriteEngine on
+# http to https
+RewriteCond %{HTTPS}  !=on 
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L] 
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+# Rewrite everything else to index.html to allow HTML5 state links
+RewriteRule ^ index.html [L]
+
+<FilesMatch ".(eot|ttf|otf|woff|png|jpg)">
+ Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php71” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

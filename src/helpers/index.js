@@ -715,7 +715,29 @@ export const wrapSwal = {
     }
 }
 
-
+// peticiones http fectch
+export const Http = ({ url, method = 'GET', body = null, headers = null }) => {
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            method: method,
+            headers: headers ?? {
+                'Content-Type': 'application/json'
+            },
+            body: method === 'GET' ? null : JSON.stringify(body)
+        }).then(async res => {
+            if (!res.ok) {
+                throw new Error(JSON.stringify(await res.json()));
+            }
+            return res.json()
+        }
+        ).then(res => {
+            resolve(res)
+        }
+        ).catch(err => {
+            reject(JSON.parse(err.message));
+        })
+    })
+}
 
 // const smoothScrollElement = ({ selector, behavior, block }) => {
 //     const element = document.querySelector(selector);

@@ -1,7 +1,9 @@
 
 import { useState } from 'react';
 import Button from "./button";
-import { wrapSwal } from '../helpers';
+import { wrapSwal, Http } from '../helpers';
+const endpoint = 'https://api.mulata.fit/api/usuarios';
+const endpointTest = 'http://localhost/backendmundoE/api/usuarios';
 export default function FormControled() {
 
     const [name, setName] = useState('');
@@ -14,6 +16,7 @@ export default function FormControled() {
     const [isPhoneTouch, setIsPhoneTouch] = useState(false);
     const [isMessageTouch, setIsMessageTouch] = useState(false);
 
+    const limitNumberCell = 6; // limite de caracteres para el numero de celular para Colombia son 10, lo dejo en 6 porque no sé en argentina cuantos son
 
     const handledChange = (e) => {
         const { name, value } = e.target;
@@ -54,22 +57,41 @@ export default function FormControled() {
         }
     }
 
+    const clearForm = () => {
+        setName('');
+        setEmail('');
+        setPhone('');
+        setMessage('');
+        setIsEmailTouch(false);
+        setIsNameTouch(false);
+        setIsPhoneTouch(false);
+        setIsMessageTouch(false);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target);
-
-        // obtener los campos name, email, phone, message
-        const { name, email, phone, message } = e.target;
-        console.log(name.value, email.value, phone.value, message.value);
-        wrapSwal.toogleLoading({});
-        setTimeout(() => {
-            wrapSwal.showToast({
-                title: 'Message sent successfully',
-                icon: 'success',
-                position: wrapSwal.POSITION.BOTTOM_END
+        wrapSwal.toogleLoading({});//mostrar el loading
+        const headers = {
+            'Content-Type': 'application/json',
+            "Authorization": "Basic Y2tfZGJjMDI5ZTA2ZWJmZTdmNjg5YjJmZTRiOGJkNzhjNWEyNzlhN2IxYjpjc180ODhjOTNjOTlhOTE3OTc4NzU4N2Y0NmIzYmIyNWZkYzNmYzdlZDBj"
+        }
+        Http({
+            url: endpoint,
+            headers: headers,
+            method: 'POST', body: { name, email, phone, message }
+        })
+            .then((response) => {
+                clearForm();//limpiar el formulario
+                wrapSwal.showToast({
+                    title: 'Message sent successfully',
+                    icon: 'success',
+                    position: wrapSwal.POSITION.BOTTOM_END
+                });
+            }).catch((error) => {
+                console.log(error);
+                wrapSwal.showErrorFetch("Error al enviar el mensaje");
             });
 
-        }, 2000);
     }
     const isNameValid = () => {
         if (!isNameTouch) return true;
@@ -85,7 +107,7 @@ export default function FormControled() {
         // regix para validar phone
         const regex = /^\d{7,14}$/;
         if (!isPhoneTouch) return true;
-        return regex.test(phone.trim()) && phone.trim().length > 9;
+        return regex.test(phone.trim()) && phone.trim().length > limitNumberCell;
     }
 
     const isMessageValid = () => {
